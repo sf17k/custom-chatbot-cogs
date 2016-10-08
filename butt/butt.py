@@ -10,12 +10,12 @@ class Butt:
         self.bot = bot
         self.lastMsgInChannel = dict()
 
-    @bot.event
+    @self.bot.event
     async def on_message(self, message):
         self.lastMsgInChannel[channel] = message
-        await bot.process_commands(message)
+        await self.bot.process_commands(message)
 
-    @bot.command(pass_context=True)
+    @self.bot.command(pass_context=True)
     async def butt(self, ctx):
         """butt"""
 
