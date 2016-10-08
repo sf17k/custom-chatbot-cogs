@@ -10,8 +10,8 @@ class Butt:
         self.bot = bot
         self.lastMsgInChannel = dict()
 
-    @commands.event
-    async def on_message(self, message):
+    @client.async_event
+    def on_message(self, message):
         self.lastMsgInChannel[channel] = message
         await self.bot.process_commands(message)
 
