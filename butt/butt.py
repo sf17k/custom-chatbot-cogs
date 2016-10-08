@@ -25,7 +25,7 @@ class Butt:
         words = msg.split()
         index = random.randint(0, len(words) - 1)
         words[index] = "butt"
-        await self.bot.say(str.join(words))
+        await self.bot.say(" ".join(words))
 
 
 def setup(bot):
