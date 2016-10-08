@@ -19,7 +19,7 @@ class Butt:
         """butt"""
 
         channel = ctx.message.channel
-        if channel not in lastMsgInChannel:
+        if channel not in self.lastMsgInChannel:
             return
         msg = self.lastMsgInChannel[channel].clean_content
         words = msg.split()
