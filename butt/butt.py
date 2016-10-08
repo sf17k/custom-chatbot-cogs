@@ -10,7 +10,6 @@ class Butt:
         self.bot = bot
         self.lastMsgInChannel = dict()
 
-    @client.async_event
     def on_message(self, message):
         self.lastMsgInChannel[channel] = message
         await self.bot.process_commands(message)
@@ -30,4 +29,7 @@ class Butt:
 
 
 def setup(bot):
-    bot.add_cog(Butt(bot))
+    b = Butt(bot)
+    bot.add_listener(b.on_message, "on_message")
+    bot.add_cog(b)
+
