@@ -11,17 +11,17 @@ class Butt:
         self.lastMsgInChannel = dict()
 
     async def on_message(self, message):
-        self.lastMsgInChannel[message.channel] = message
+        self.lastMsgInChannel[message.channel.id] = message
         #await self.bot.process_commands(message)
 
     @commands.command(pass_context=True)
     async def butt(self, ctx):
         """butt"""
 
-        channel = ctx.message.channel
-        if channel not in self.lastMsgInChannel:
+        channelid = ctx.message.channel.id
+        if channelid not in self.lastMsgInChannel:
             return
-        msg = self.lastMsgInChannel[channel].clean_content
+        msg = self.lastMsgInChannel[channelid].clean_content
         words = msg.split()
         index = random.randint(0, len(words) - 1)
         words[index] = "butt"
